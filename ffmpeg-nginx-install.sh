@@ -29,7 +29,8 @@
 #Install Nginx 
 	sudo mkdir -p /opt/nginx
 	cd /opt/nginx
-	sudo wget http://nginx.org/download/nginx-1.19.6.zip
+	#sudo wget http://nginx.org/download/nginx-1.19.6.zip
+	sudo wget https://github.com/pankajthakur888/streaming/raw/main/nginx-1.19.6.zip
 	sudo unzip nginx-1.19.6.zip
 	sudo wget https://github.com/pankajthakur888/streaming/raw/main/nginx-rtmp.zip
 	sudo unzip nginx-rtmp.zip

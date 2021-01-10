@@ -43,6 +43,7 @@
 	sudo ./configure --prefix=/usr/local/nginx --with-http_ssl_module --add-module=../nginx-rtmp-module
 	sudo make
 	sudo make install
+	ln -s /usr/local/nginx/sbin/nginx /usr/bin/nginx
 	
 ##Configuration with Nginx
 	sudo mv /usr/local/nginx/conf/nginx.conf /usr/local/nginx/conf/nginx.conf-old

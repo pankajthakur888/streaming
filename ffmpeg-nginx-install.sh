@@ -44,6 +44,18 @@
 	sudo make
 	sudo make install
 	
+##Configuration with Nginx
 	sudo mv /usr/local/nginx/conf/nginx.conf /usr/local/nginx/conf/nginx.conf-old
 	sudo cd /usr/local/nginx/conf/
 	sudo wget https://github.com/pankajthakur888/streaming/raw/main/nginx.conf
+	
+##Creating Dir for DASH AND HLS Chunks
+	sudo mkdir -p /mnt/sd
+	sudo mdkir -p /mnt/hd
+
+##Check Stop and Start Nginx
+	sudo /usr/local/nginx/sbin/nginx -t
+	sudo /usr/local/nginx/sbin/nginx -s stop
+	sudo /usr/local/nginx/sbin/nginx
+	
+	

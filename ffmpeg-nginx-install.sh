@@ -29,7 +29,10 @@
 #Install Nginx 
 	sudo mkdir -p /opt/nginx
 	cd /opt/nginx
-	sudo wget http://nginx.org/download/nginx-1.9.9.zip
+	sudo wget http://nginx.org/download/nginx-1.19.6.zip
+	sudo unzip nginx-rtmp.zip
+	sudo wget https://github.com/pankajthakur888/streaming/raw/main/nginx-rtmp.zip
+	sudo unzip nginx-rtmp.zip
 	cd nginx*
 	sudo ./configure --prefix=/usr/local/nginx --with-http_ssl_module --add-module=../nginx-rtmp-module
 	sudo make

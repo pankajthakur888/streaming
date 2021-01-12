@@ -40,7 +40,8 @@
 	
 ##Compile with Nginx with RTMP Module
 	cd nginx-1.19.6
-	sudo ./configure --prefix=/usr/local/nginx --with-http_ssl_module --add-module=../nginx-rtmp-module
+	#sudo ./configure --prefix=/usr/local/nginx --with-http_ssl_module --add-module=../nginx-rtmp-module
+	sudo ./configure --prefix=/usr/local/nginx --with-http_ssl_module --with-http_secure_link_module --add-module=../nginx-rtmp-module
 	sudo make
 	sudo make install
 	ln -s /usr/local/nginx/sbin/nginx /usr/bin/nginx

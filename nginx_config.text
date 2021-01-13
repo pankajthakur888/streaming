@@ -1,4 +1,4 @@
-pankaj@system32:/opt/nginx-1.0.6$ ./configure --help
+pankaj@system32:/opt/nginx-1.19.6$ ./configure --help
 
   --help                             this message
 

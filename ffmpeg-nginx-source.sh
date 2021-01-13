@@ -128,7 +128,7 @@
             --with-debug \
 	    --add-module=../nginx-rtmp-module
 
-	sudo make
+	make
 	sudo make install
 
 ##After building NGINX, navigate to home (~) directory:

@@ -25,6 +25,8 @@
 	sudo ln -s "${PWD}/ffprobe" /usr/local/bin/
 
 #=====================================================================================================#
+#Create NGINX system group and user:
+	sudo adduser --system --home /nonexistent --shell /bin/false --no-create-home --disabled-login --disabled-password --gecos "nginx user" --group nginx
 
 #Install Nginx with RTMP Module.
 	sudo mkdir -p /opt/nginx
@@ -37,11 +39,37 @@
 ##Download nginx-rtmp module
 	sudo wget https://github.com/pankajthakur888/streaming/raw/main/nginx-rtmp.zip
 	sudo unzip nginx-rtmp.zip
+
+#Download the mandatory NGINX dependencies' source code and extract them:
+	## PCRE version 8.42
+	wget https://ftp.pcre.org/pub/pcre/pcre-8.42.tar.gz && tar xzvf pcre-8.42.tar.gz
+
+	## zlib version 1.2.11
+	wget https://www.zlib.net/zlib-1.2.11.tar.gz && tar xzvf zlib-1.2.11.tar.gz
+
+	## OpenSSL version 1.1.0h
+	wget https://www.openssl.org/source/openssl-1.1.0h.tar.gz && tar xzvf openssl-1.1.0h.tar.gz
 	
-##Compile with Nginx with RTMP Module
+#Install optional NGINX dependencies:
+	sudo add-apt-repository -y ppa:maxmind/ppa
+	sudo apt update && sudo apt upgrade -y 
+	sudo apt install -y perl libperl-dev libgd3 libgd-dev libgeoip1 libgeoip-dev geoip-bin libxml2 libxml2-dev libxslt1.1 libxslt1-dev
+	
+#Clean up all .tar.gz files. We don't need them anymore:
+	rm -rf *.tar.gz
+	
+#Copy NGINX manual page to /usr/share/man/man8/ directory:
+	sudo cp ~/nginx-1.15.0/man/nginx.8 /usr/share/man/man8
+	sudo cat /usr/share/man/man8/nginx.8
+	ls /usr/share/man/man8/ | grep nginx.8.gz
+	# Check that Man page for NGINX is working:
+	man nginx
+
+#Compile with Nginx with RTMP Module
 	cd nginx-1.19.6
+	
 	#sudo ./configure --prefix=/usr/local/nginx --with-http_ssl_module --with-http_secure_link_module --add-module=../nginx-rtmp-module
-  ./configure --prefix=/etc/nginx \ 
+  ./configure --prefix=/usr/local/nginx \ 
             --sbin-path=/usr/sbin/nginx \ 
             --modules-path=/usr/lib/nginx/modules \ 
             --conf-path=/etc/nginx/nginx.conf \
@@ -97,11 +125,19 @@
             --with-zlib=../zlib-1.2.11 \
             --with-openssl=../openssl-1.1.0h \
             --with-openssl-opt=no-nextprotoneg \
-            --with-debug
+            --with-debug \
+	    --add-module=../nginx-rtmp-module
 
 	sudo make
 	sudo make install
-	ln -s /usr/local/nginx/sbin/nginx /usr/bin/nginx
+
+##After building NGINX, navigate to home (~) directory:
+	cd ~
+
+##Symlink /usr/lib/nginx/modules to /usr/local/nginx/modules directory. /usr/local/nginx/modules is a standard place for NGINX modules:
+	sudo ln -s /usr/lib/nginx/modules /usr/local/nginx/modules
+	#
+	sudo ln -s /usr/local/nginx/sbin/nginx /usr/bin/nginx
 	
 ##Configuration with Nginx
 	sudo mv /usr/local/nginx/conf/nginx.conf /usr/local/nginx/conf/nginx.conf-old
@@ -117,4 +153,24 @@
 	sudo /usr/local/nginx/sbin/nginx -s stop
 	sudo /usr/local/nginx/sbin/nginx
 	
+##Print the NGINX version, compiler version, and configure script parameters:
+	sudo nginx -V
 	
+##Check NGINX syntax and potential errors:
+	sudo nginx -t
+	# Will throw this error -> nginx: [emerg] mkdir() "/var/cache/nginx/client_temp" failed (2: No such file or directory)
+
+	# Create NGINX cache directories and set proper permissions
+	sudo mkdir -p /var/cache/nginx/client_temp /var/cache/nginx/fastcgi_temp /var/cache/nginx/proxy_temp /var/cache/nginx/scgi_temp /var/cache/nginx/uwsgi_temp
+	sudo chmod 700 /var/cache/nginx/*
+	sudo chown nginx:root /var/cache/nginx/*
+
+	# Re-check syntax and potential errors.
+	sudo nginx -t
+
+##Remove all downloaded files from home directory:
+	sudo cd /opt/nginx/
+	rm -rf nginx-1.15.0/ openssl-1.1.0h/ pcre-8.42/ zlib-1.2.11/
+
+
+

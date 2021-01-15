@@ -59,7 +59,7 @@
 	rm -rf *.tar.gz
 	
 #Copy NGINX manual page to /usr/share/man/man8/ directory:
-	sudo cp ~/nginx-1.15.0/man/nginx.8 /usr/share/man/man8
+	sudo cp ~/nginx-1.19.0/man/nginx.8 /usr/share/man/man8
 	sudo cat /usr/share/man/man8/nginx.8
 	ls /usr/share/man/man8/ | grep nginx.8.gz
 	# Check that Man page for NGINX is working:
@@ -210,7 +210,7 @@
 
 ##Remove all downloaded files from home directory:
 	sudo cd /opt/nginx/
-	rm -rf nginx-1.15.0/ openssl-1.1.0h/ pcre-8.42/ zlib-1.2.11/
+	rm -rf nginx-1.19.0/ openssl-1.1.0h/ pcre-8.42/ zlib-1.2.11/
 
 
 

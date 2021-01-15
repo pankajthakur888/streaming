@@ -32,9 +32,11 @@
 	sudo mkdir -p /opt/nginx
 	cd /opt/nginx
 	
-##Download nginx-1.19.6
-	sudo wget https://github.com/pankajthakur888/streaming/raw/main/nginx-1.19.6.zip
-	sudo unzip nginx-1.19.6.zip
+##Download nginx-1.19.0
+        #sudo wget https://github.com/pankajthakur888/streaming/raw/main/nginx-1.19.6.zip
+        #sudo unzip nginx-1.19.6.zip
+        sudo wget http://nginx.org/download/nginx-1.19.0.tar.gz
+        tar -zxvf nginx-1.19.0.tar.gz
 	
 ##Download nginx-rtmp module
 	sudo wget https://github.com/pankajthakur888/streaming/raw/main/nginx-rtmp.zip

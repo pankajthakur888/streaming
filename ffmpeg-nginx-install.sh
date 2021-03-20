@@ -48,7 +48,7 @@
 	
 ##Configuration with Nginx
 	sudo mv /usr/local/nginx/conf/nginx.conf /usr/local/nginx/conf/nginx.conf-old
-	sudo cd /usr/local/nginx/conf/
+	cd /usr/local/nginx/conf/
 	sudo wget https://github.com/pankajthakur888/streaming/raw/main/nginx.conf
 	
 ##Creating Dir for DASH AND HLS Chunks

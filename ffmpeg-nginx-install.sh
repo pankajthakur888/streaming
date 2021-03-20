@@ -30,7 +30,7 @@
 	sudo mkdir -p /opt/nginx
 	cd /opt/nginx
 	
-##Download nginx-1.19.6
+##Download nginx-1.19.0
 	sudo wget https://github.com/pankajthakur888/streaming/raw/main/nginx-1.19.0.zip
 	sudo unzip nginx-1.19.0.zip
 	

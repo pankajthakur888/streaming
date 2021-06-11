@@ -8,7 +8,7 @@
 	sudo apt install net-tools -y
 
 #Install Dependency to Run Streaming
-	sudo apt install -y git wget vim build-essential libpcre3 libpcre3-dev libssl-dev zlib1g-dev
+	sudo apt install -y git wget vim build-essential libpcre3 libpcre3-dev libssl-dev zlib1g-dev unzip
 
 #Install FFmpeg
 	sudo mkdir -p /opt/ffmpeg

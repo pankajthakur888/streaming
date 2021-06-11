@@ -32,14 +32,14 @@
 	
 ##Download nginx-1.19.0
 	sudo wget https://github.com/pankajthakur888/streaming/raw/main/nginx-1.19.6.zip
-	sudo unzip nginx-1.19.0.zip
+	sudo unzip nginx-1.19.6.zip
 	
 ##Download nginx-rtmp module
 	sudo wget https://github.com/pankajthakur888/streaming/raw/main/nginx-rtmp.zip
 	sudo unzip nginx-rtmp.zip
 	
 ##Compile with Nginx with RTMP Module
-	cd nginx-1.19.0
+	cd nginx-1.19.6
 	#sudo ./configure --prefix=/usr/local/nginx --with-http_ssl_module --add-module=../nginx-rtmp-module
 	sudo ./configure --prefix=/usr/local/nginx --with-http_ssl_module --with-http_secure_link_module --add-module=../nginx-rtmp-module
 	sudo make

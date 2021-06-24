@@ -61,4 +61,6 @@
 	sudo /usr/local/nginx/sbin/nginx -s stop
 	sudo /usr/local/nginx/sbin/nginx
 	
+#sudo rm -f -R /usr/local/nginx && rm -f /usr/local/sbin/nginx
+
 	

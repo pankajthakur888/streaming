@@ -29,17 +29,18 @@
 #Install Nginx with RTMP Module.
 	sudo mkdir -p /opt/nginx
 	cd /opt/nginx
+	sudo chown ubuntu:ubuntu
 	
 ##Download nginx-1.19.0
-	wget https://github.com/pankajthakur888/streaming/raw/main/nginx-1.19.6.zip
-	unzip nginx-1.19.6.zip
+	wget https://github.com/pankajthakur888/streaming/blob/main/nginx-1.19.0.tar.gz
+	unzip nginx-1.19.0.zip
 	
 ##Download nginx-rtmp module
 	wget https://github.com/pankajthakur888/streaming/raw/main/nginx-rtmp.zip
 	unzip nginx-rtmp.zip
 	
 ##Compile with Nginx with RTMP Module
-	cd nginx-1.19.6
+	cd nginx-1.19.0
 	#sudo ./configure --prefix=/usr/local/nginx --with-http_ssl_module --add-module=../nginx-rtmp-module
 	sudo ./configure --prefix=/usr/local/nginx --with-http_ssl_module --with-http_secure_link_module --add-module=../nginx-rtmp-module
 	sudo make

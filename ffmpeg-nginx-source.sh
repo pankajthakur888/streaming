@@ -170,6 +170,11 @@
 #	--with-debug \
 #	--add-module=../nginx-rtmp-module
 
+##NGINX RTMP compile error – nginx-rtmp-module – ngx_rtmp_eval.c:160:17: error: this statement may fall through
+
+#./auto/configure --add-module=../nginx-rtmp-module --with-cc-opt="-Wimplicit-fallthrough=0"
+#sudo ./configure --add-module=../nginx-rtmp-module --with-cc-opt="-Wimplicit-fallthrough=0"
+
 	make
 	sudo make install
 

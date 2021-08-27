@@ -33,7 +33,8 @@
 	
 ##Download nginx-1.19.0
 	wget https://github.com/pankajthakur888/streaming/blob/main/nginx-1.19.0.tar.gz
-	unzip nginx-1.19.0.zip
+	#wget https://nginx.org/download/nginx-1.19.0.tar.gz
+	tar zxf nginx-1.19.0.tar.gz
 	
 ##Download nginx-rtmp module
 	wget https://github.com/pankajthakur888/streaming/raw/main/nginx-rtmp.zip

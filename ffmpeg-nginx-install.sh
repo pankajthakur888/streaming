@@ -40,6 +40,9 @@
 	wget https://github.com/pankajthakur888/streaming/raw/main/nginx-rtmp.zip
 	unzip nginx-rtmp.zip
 	
+##Download nginx-ts-module module
+	git clone https://github.com/arut/nginx-ts-module.git
+	
 ##Compile with Nginx with RTMP Module
 	cd nginx-1.19.0
 	#sudo ./configure --prefix=/usr/local/nginx --with-http_ssl_module --add-module=../nginx-rtmp-module

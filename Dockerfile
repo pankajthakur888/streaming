@@ -17,6 +17,14 @@ RUN mkdir -p /tmp/build/nginx && \
     wget -O nginx-1.11.5.tar.gz https://nginx.org/download/nginx-1.11.5.tar.gz && \
     tar -zxf nginx-1.11.5.tar.gz
 
+# Download and decompress RTMP module
+RUN mkdir -p /tmp/build/nginx-ts-module && \
+    cd /tmp/build/nginx-ts-module && \
+    #https://github.com/arut/nginx-ts-module.git
+    wget -O nginx-ts-module.tar.gz https://github.com/arut/nginx-ts-module.git && \
+    tar -zxf nginx-ts-module.tar.gz && \
+    cd nginx-ts-module
+
 # Download and decompress Nginx
 #RUN mkdir -p /tmp/build/nginx && \
 #    cd /tmp/build/nginx && \
@@ -46,7 +54,7 @@ RUN cd /tmp/build/nginx/${NGINX_VERSION} && \
         --with-threads \
         --with-ipv6 \
         --add-module=/tmp/build/nginx-rtmp-module/nginx-rtmp-module-${NGINX_RTMP_MODULE_VERSION} && \
-        --add-module=/path/to/nginx-ts-module
+        --add-module=/tmp/build/nginx-ts-module/nginx-ts-module && \
     make -j $(getconf _NPROCESSORS_ONLN) && \
     make install && \
     mkdir /var/lock/nginx && \

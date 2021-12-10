@@ -29,7 +29,7 @@
 
 #Download the mandatory NGINX dependencies' source code and extract them:
 	## PCRE version 8.42
-	wget https://ftp.pcre.org/pub/pcre/pcre-8.42.tar.gz && tar xzvf pcre-8.42.tar.gz
+	wget https://github.com/pankajthakur888/streaming/blob/main/pcre-8.42.tar.gz && tar xzvf pcre-8.42.tar.gz
 
 	## zlib version 1.2.11
 	wget https://www.zlib.net/zlib-1.2.11.tar.gz && tar xzvf zlib-1.2.11.tar.gz

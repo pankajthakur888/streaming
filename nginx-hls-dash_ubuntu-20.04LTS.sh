@@ -1,5 +1,7 @@
 #!/bin/bash
 #=====================================================================================================#
+#To Run this bash
+#	curl -s https://raw.githubusercontent.com/pankajthakur888/streaming/main/nginx-hls-dash_ubuntu-20.04LTS.sh bash -x
 #Create NGINX system group and user:
 	sudo adduser --system --home /nonexistent --shell /bin/false --no-create-home --disabled-login --disabled-password --gecos "nginx user" --group nginx
 

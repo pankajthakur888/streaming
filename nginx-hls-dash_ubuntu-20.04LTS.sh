@@ -32,8 +32,8 @@
 	#wget https://github.com/pankajthakur888/streaming/blob/main/pcre-8.42.tar.gz && tar xzvf pcre-8.42.tar.gz
 	wget https://ftp.exim.org/pub/pcre/pcre-8.42.tar.gz && tar xzvf pcre-8.42.tar.gz
 
-	## zlib version 1.2.11
-	wget https://www.zlib.net/zlib-1.2.11.tar.gz && tar xzvf zlib-1.2.11.tar.gz
+	## zlib version 1.2.12
+	wget https://www.zlib.net/zlib-1.2.12.tar.gz && tar xzvf zlib-1.2.12.tar.gz
 
 	## OpenSSL version 1.1.0h
 	wget https://www.openssl.org/source/openssl-1.1.0h.tar.gz && tar xzvf openssl-1.1.0h.tar.gz
@@ -95,7 +95,7 @@
 	--with-http_ssl_module \
 	--with-pcre=../pcre-8.42 \
 	--with-pcre-jit \
-	--with-zlib=../zlib-1.2.11 \
+	--with-zlib=../zlib-1.2.12 \
 	--with-openssl=../openssl-1.1.0h \
 	--without-http_empty_gif_module \
 	--with-openssl-opt=no-nextprotoneg \
@@ -167,9 +167,13 @@
 	#
 	sudo ln -s /usr/local/nginx/sbin/nginx /usr/bin/nginx
 	
+##Download Stat file stat.xsl
+	cd /usr/local/nginx/html/
+	sudo wget https://github.com/pankajthakur888/streaming/raw/main/stat.xsl
+
 ##Configuration with Nginx
 	sudo mv /usr/local/nginx/conf/nginx.conf /usr/local/nginx/conf/nginx.conf-old
-	sudo cd /usr/local/nginx/conf/
+	cd /usr/local/nginx/conf/
 	sudo wget https://github.com/pankajthakur888/streaming/raw/main/nginx.conf
 	
 ##Creating Dir for DASH AND HLS Chunks

@@ -20,8 +20,9 @@
 ##Download nginx-1.19.0
         #sudo wget https://github.com/pankajthakur888/streaming/raw/main/nginx-1.19.6.zip
         #sudo unzip nginx-1.19.6.zip
-        sudo wget http://nginx.org/download/nginx-1.19.0.tar.gz
-        tar -zxvf nginx-1.19.0.tar.gz
+        #sudo wget http://nginx.org/download/nginx-1.19.0.tar.gz
+        #tar -zxvf nginx-1.19.0.tar.gz
+	sudo wget https://github.com/pankajthakur888/streaming/raw/main/nginx-1.19.0.tar.gz  && tar xzvf nginx-1.19.0.tar.gz
 	
 ##Download nginx-rtmp module
 	sudo wget https://github.com/pankajthakur888/streaming/raw/main/nginx-rtmp.zip
@@ -30,13 +31,16 @@
 #Download the mandatory NGINX dependencies' source code and extract them:
 	## PCRE version 8.42
 	#wget https://github.com/pankajthakur888/streaming/blob/main/pcre-8.42.tar.gz && tar xzvf pcre-8.42.tar.gz
-	wget https://ftp.exim.org/pub/pcre/pcre-8.42.tar.gz && tar xzvf pcre-8.42.tar.gz
-
+	#wget https://ftp.exim.org/pub/pcre/pcre-8.42.tar.gz && tar xzvf pcre-8.42.tar.gz
+	wget https://github.com/pankajthakur888/streaming/raw/main/pcre-8.42.tar.gz && tar xzvf pcre-8.42.tar.gz
+	
 	## zlib version 1.2.12
-	wget https://www.zlib.net/zlib-1.2.12.tar.gz && tar xzvf zlib-1.2.12.tar.gz
-
+	#wget https://www.zlib.net/zlib-1.2.12.tar.gz && tar xzvf zlib-1.2.12.tar.gz
+        wget https://github.com/pankajthakur888/streaming/raw/main/zlib-1.2.12.tar.gz && tar xzvf zlib-1.2.12.tar.gz
+	
 	## OpenSSL version 1.1.0h
-	wget https://www.openssl.org/source/openssl-1.1.0h.tar.gz && tar xzvf openssl-1.1.0h.tar.gz
+	#wget https://www.openssl.org/source/openssl-1.1.0h.tar.gz && tar xzvf openssl-1.1.0h.tar.gz
+        wget https://github.com/pankajthakur888/streaming/raw/main/openssl-1.1.0h.tar.gz && tar xzvf openssl-1.1.0h.tar.gz
 	
 #Install optional NGINX dependencies:
 	sudo add-apt-repository -y ppa:maxmind/ppa
@@ -70,7 +74,7 @@
 #	--with-http_ssl_module \
 #	--with-pcre=../pcre-8.42 \
 #	--with-pcre-jit \
-#	--with-zlib=../zlib-1.2.11 \
+#	--with-zlib=../zlib-1.2.12 \
 #	--with-openssl=../openssl-1.1.0h \
 #	--without-http_empty_gif_module \
 #	--with-openssl-opt=no-nextprotoneg \
@@ -150,7 +154,7 @@
 #	--with-compat \
 #	--with-pcre=../pcre-8.42 \
 #	--with-pcre-jit \
-#	--with-zlib=../zlib-1.2.11 \
+#	--with-zlib=../zlib-1.2.12 \
 #	--with-openssl=../openssl-1.1.0h \
 #	--with-openssl-opt=no-nextprotoneg \
 #	--with-debug \
